@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row" style="padding: 5%;">
+        <div class="col-md-2 bg-pattern" style="padding: 10%;"></div>
+        <div class="col-md">
+          <h2>Registration</h2>
+          <form
+            name="register"
+            method="post"
+            [formGroup]="formdetails"
+            (ngSubmit)="onSubmit()"
+          >
+            <div
+              class="form-group"
+              [ngClass]="{
+                error:
+                  (formdetails.get('email').errors &&
+                    formdetails.get('email').touched) ||
+                  formdetails.get('email').dirty
+              }"
+            >
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Enter email"
+                formControlName="email"
+              />
+              <span
+                class="error-name"
+                *ngIf="
+                  (formdetails.get('email') &&
+                    formdetails.get('email').touched) ||
+                  formdetails.get('email').dirty
+                "
+              >
+                <span *ngIf="formdetails.get('email').errors">
+                  email is required.
+                </span>
+                <span *ngIf="formdetails.get('email').errors">
+                  enter valid emailaddress.
+                </span>
+              </span>
+            </div>
+            <div [formGroup]="passwordFormGroup">
+              <div
+                class="form-group"
+                [ngClass]="{
+                  error:
+                    (passwordFormGroup.get('pwd').errors &&
+                      passwordFormGroup.get('pwd').touched) ||
+                    passwordFormGroup.get('pwd').dirty
+                }"
+              >
+                <label for="pwd">Password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pwd"
+                  placeholder="Enter password"
+                  formControlName="pwd"
+                />
+                <span
+                  class="error-name"
+                  *ngIf="
+                    (passwordFormGroup.get('pwd') &&
+                      passwordFormGroup.get('pwd').touched) ||
+                    passwordFormGroup.get('pwd').dirty
+                  "
+                >
+                  <span *ngIf="passwordFormGroup.get('pwd').errors">
+                    password is required is required.
+                  </span>
+                  <span *ngIf="passwordFormGroup.get('pwd').errors">
+                    minimum 8 charcaters, one number is required atleast
+                  </span>
+                </span>
+              </div>
+              <div
+                class="form-group"
+                [ngClass]="{
+                  error:
+                    (passwordFormGroup.get('cpwd').errors &&
+                      passwordFormGroup.get('cpwd').touched) ||
+                    passwordFormGroup.get('cpwd').dirty
+                }"
+              >
+                <label for="cpwd">Confirm Password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="cpwd"
+                  placeholder="Enter password"
+                  formControlName="cpwd"
+                />
+                <span
+                  class="error-name"
+                  *ngIf="
+                    (passwordFormGroup.get('cpwd') &&
+                      passwordFormGroup.get('cpwd').touched) ||
+                    passwordFormGroup.get('cpwd').dirty
+                  "
+                >
+                  <span *ngIf="passwordFormGroup.get('cpwd').errors">
+                    password is required.
+                  </span>
+                  <span *ngIf="passwordFormGroup.hasError('doesMatchPassword')">
+                    password did not match
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              class="form-group"
+              [ngClass]="{
+                error:
+                  (formdetails.get('fname').errors &&
+                    formdetails.get('fname').touched) ||
+                  formdetails.get('fname').dirty
+              }"
+            >
+              <label for="fname">First Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="fname"
+                placeholder="Enter Full Name"
+                formControlName="fname"
+              />
+              <span
+                class="error-name"
+                *ngIf="
+                  (formdetails.get('fname') &&
+                    formdetails.get('fname').touched) ||
+                  formdetails.get('fname').dirty
+                "
+              >
+                <span *ngIf="formdetails.get('fname').errors">
+                  firstname is required.
+                </span>
+                <span *ngIf="formdetails.get('fname').errors">
+                  limit 20 characters.
+                </span>
+               <!-- <span *ngIf="formdetails.get('fname').errors"></span>-->
+              </span>
+            </div>
+            <div
+              class="form-group"
+              [ngClass]="{
+                error:
+                  (formdetails.get('lname').errors &&
+                    formdetails.get('lname').touched) ||
+                  formdetails.get('lname').dirty
+              }"
+            >
+              <label for="lname">Last Name:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lname"
+                placeholder="Enter Last Name"
+                formControlName="lname"
+              />
+              <span
+                class="error-name"
+                *ngIf="
+                  (formdetails.get('lname') &&
+                    formdetails.get('lname').touched) ||
+                  formdetails.get('lname').dirty
+                "
+              >
+                <span *ngIf="formdetails.get('lname').errors">
+                  lastname is required.
+                </span>
+                <span *ngIf="formdetails.get('lname').errors">
+                  limit 20 characters.
+                </span>
+              </span>
+            </div>
+            <!--<div class="form-group">-->
+            <!--<label for="gender">Gender:</label>-->
+            <!--<input type="radio" formControlName="mgender" value="male"> Male-->
+            <!--<input type="radio" formControlName="fgender" value="female">Female-->
+            <!--</div>-->
+            <div
+              class="form-group"
+              [ngClass]="{
+                error:
+                  (formdetails.get('dob').errors &&
+                    formdetails.get('dob').touched) ||
+                  formdetails.get('dob').dirty
+              }"
+            >
+              <label for="dob">Date Of Birth:</label>
+              <input
+                type="date"
+                class="form-control"
+                id="dob"
+                placeholder="Enter Date"
+                formControlName="dob"
+              />
+              <span
+                class="error-name"
+                *ngIf="
+                  (formdetails.get('dob') && formdetails.get('dob').touched) ||
+                  formdetails.get('dob').dirty
+                "
+              >
+                <span *ngIf="formdetails.get('dob').errors">
+                  DateofBirth is required.
+                </span>
+              </span>
+            </div>
+            <div class="form-group" [ngClass]="{
+                error:
+                  (formdetails.get('mob').errors &&
+                    formdetails.get('mob').touched) ||
+                  formdetails.get('mob').dirty
+              }">
+              <label for="mob">Mobile:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="mob"
+                pattern="[0-9]"
+                placeholder="Enter Number"
+                formControlName="mob"
+              />
+              <span
+                class="error-name"
+                *ngIf="
+                  (formdetails.get('mob') &&
+                    formdetails.get('mob').touched) ||
+                  formdetails.get('mob').dirty
+                "
+              >
+                <span *ngIf="formdetails.get('mob').errors">
+                  mobilenumber is required.
+                </span>
+                <span *ngIf="formdetails.get('mob').errors">
+                  limit 10 numericals.
+                </span>
+              </span>
+            </div>
+            <div
+              class="form-group"
+              [ngClass]="{
+                error:
+                  (formdetails.get('seq').errors &&
+                    formdetails.get('seq').touched) ||
+                  formdetails.get('seq').dirty
+              }"
+            >
+              <label for="sel1">Security Question:</label>
+              <select formControlName="seq" class="form-control" id="sel1">
+                <option>what is your pet name:</option>
+                <option>What is best friend name:</option>
+                <option>Your wife dateofbirth:</option>
+                <option>Your anniversariy date:</option>
+                <option>Yout date of birth:</option>
+              </select>
+              <span
+                class="error-name"
+                *ngIf="
+                  (formdetails.get('seq') && formdetails.get('seq').touched) ||
+                  formdetails.get('seq').dirty
+                "
+              >
+                <span *ngIf="formdetails.get('seq').errors">
+                  SequrityQuestion is required.
+                </span>
+              </span>
+              <div
+                class="form-group"
+                [ngClass]="{
+                  error:
+                    (formdetails.get('sans').errors &&
+                      formdetails.get('sans').touched) ||
+                    formdetails.get('sans').dirty
+                }"
+              >
+                <label for="sans">Security Answer:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="sans"
+                  placeholder="Enter Answwer"
+                  formControlName="sans"
+                />
+                <span
+                  class="error-name"
+                  *ngIf="
+                    (formdetails.get('sans') &&
+                      formdetails.get('sans').touched) ||
+                    formdetails.get('sans').dirty
+                  "
+                >
+                  <span *ngIf="formdetails.get('sans').errors">
+                    Sequrityanswer is required.
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  Name="remember"
+                />
+                Remember me
+              </label>
+            </div>
+            <button
+              type="reset"
+              class="btn btn-primary"
+              style="margin-right: 5px;"
+            >
+              reset
+            </button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
