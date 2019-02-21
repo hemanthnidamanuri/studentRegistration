@@ -10,6 +10,8 @@ import {RouterModule} from '@angular/router';
 import {routes} from './route';
 import {ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { LocalComponent } from './local/local.component';
+import { HooksComponent } from './hooks/hooks.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { LocalComponent } from './local/local.component';
     HeaderComponent,
     FooterComponent,
     RegistrationComponent,
-    LocalComponent
+    LocalComponent,
+    HooksComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,

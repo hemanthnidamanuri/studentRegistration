@@ -8,11 +8,12 @@
   <title>Document</title>
 </head>
 <body>
-<div>
-  <a [routerLink]="['/registration']"><button> Add Customer</button></a>
-  <a [routerLink]="['/hooks']"><button>LifeCycleHooksTask</button></a>
-  <a [routerLink]="['/pipes']"><button>PipesTask</button></a>
+
+<div class="w-100 pt-4 justify-content-center d-flex">
+  <button class="btn" (click)="add()">+</button>
+  <div class="pl-4">
+    <p><{{num}}/p>
+  </div>
 </div>
-<router-outlet></router-outlet>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="table">
+    <table border="1 px;">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Date</th>
+        <th>Salary</th>
+        <th>PhoneNumber</th>
+      </tr>
+      <tr *ngFor="let emp of employeesData">
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.gender}}</td>
+        <td>{{emp.date | date: 'MMMM d, y'}}at{{emp.date | date: 'h:mm a'}}</td>
+        <td>{{emp.salary | currency: 'USD' : true}}</td>
+        <td>{{emp.pho}}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
