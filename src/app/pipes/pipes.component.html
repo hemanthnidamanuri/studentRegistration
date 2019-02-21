@@ -20,11 +20,11 @@
       </tr>
       <tr *ngFor="let emp of employeesData">
         <td>{{emp.id}}</td>
-        <td>{{emp.name}}</td>
+        <td>{{emp.name | gender: emp.gender}}</td>
         <td>{{emp.gender}}</td>
         <td>{{emp.date | date: 'MMMM d, y'}}at{{emp.date | date: 'h:mm a'}}</td>
         <td>{{emp.salary | currency: 'USD' : true}}</td>
-        <td>{{emp.pho}}</td>
+        <td>{{emp.pho | phone : emp.pho}}</td>
       </tr>
     </table>
   </div>

@@ -12,6 +12,8 @@ import {ReactiveFormsModule , FormsModule} from '@angular/forms';
 import { LocalComponent } from './local/local.component';
 import { HooksComponent } from './hooks/hooks.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { GenderPipe } from './gender.pipe';
+import { PhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PipesComponent } from './pipes/pipes.component';
     RegistrationComponent,
     LocalComponent,
     HooksComponent,
-    PipesComponent
+    PipesComponent,
+    GenderPipe,
+    PhonePipe
   ],
   imports: [
     BrowserModule,
